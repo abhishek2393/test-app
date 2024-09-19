@@ -2,16 +2,16 @@ export const FETCH_ALL_PRODUCT = `
 query getAllProduct {
     allProduct {
         _id
-        productName
-        productSlug {
+        name
+        slug {
         current
         }
-        productImage {
+        image {
         asset {
             url
         }
         }
-        productDescriptionRaw
+        descriptionRaw
     }
 }
 `;

@@ -18,7 +18,7 @@ type product={
 // fetch data with cache no-store
 const data = await client({query: FETCH_ALL_PRODUCT},);
 const productList = data.data.allProduct;
-const storeSlug = 'denver-store'
+const storeSlug = 'denver-stores'
 console.log(process.env.NODE_ENV )
 async function fetchStoreBySlug(slug:string) {
   try {
@@ -31,7 +31,7 @@ async function fetchStoreBySlug(slug:string) {
       throw new Error('Failed to fetch store data');
     }
     // console.log('store',data)
-    await fetchTestimonialsByStoreName(data.allStore[0].storeName)
+    await fetchTestimonialsByStoreName(storeSlug)
     return data; // This should now work correctly
   } catch (error) {
     console.error('Error fetching store:', error);
@@ -58,8 +58,8 @@ async function fetchTestimonialsByStoreName(storeName:string) {
   }
 }
 
-const storeData = await fetchStoreBySlug(storeSlug);
-console.log('storeData',storeData)
+// const storeData = await fetchStoreBySlug(storeSlug);
+// console.log('storeData',storeData)
 
 
 export default function Home() {
